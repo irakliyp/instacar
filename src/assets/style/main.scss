@@ -1,11 +1,13 @@
 /* Setup */
-@import "setup/vars.css";
-@import "setup/typography.css";
+@import "setup/_vars";
+@import 'setup/typography';
+@import 'setup/mixins';
+@import 'setup/functions';
 
 /* Base */
 @import "base/base.css";
 @import "base/helpers.css";
-@import "base/layout.css";
+@import "base/layout";
 @import "base/forms.css";
 
 /* Components */

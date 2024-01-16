@@ -22,27 +22,23 @@ export function storyReducer(state = initialState, action = {}) {
                 ...state,
                 imgUrl: [...state.imgUrl, action.imgUrl]
             }
-            break;
         case ADD_COMMENT:
             return {
                 ...state,
                 comments: [...state.comments, action.comments]
             }
-            break;
         case LIKE_STORY:
             return {
                 ...state,
                 likedBy: [...state.likedBy, action.likedBy]
             }
-            break;
         case ADD_TAG:
             return {
                 ...state,
                 tags: [...state.tags, action.tags]
             }
-            break;
 
         default:
-            break;
+            return state;
     }
 }

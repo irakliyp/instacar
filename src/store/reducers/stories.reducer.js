@@ -14,21 +14,18 @@ export function storiesReducer(state = initialState, action = {}) {
                 ...state,
                 stories: action.stories
             }
-            break;
         case ADD_STORY:
             return {
                 ...state,
                 stories: [...state.stories, action.story]
             }
-            break;
         case REMOVE_STORY:
             return {
                 ...state,
                 stories: state.stories.filter(story => story.id !== action.story.id)
             }
-            break;
 
         default:
-            break;
+            return state;
     }
 }

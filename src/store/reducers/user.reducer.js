@@ -28,51 +28,43 @@ export function userReducer(state = initialState, action = {}) {
                 ...state,
                 following: [...state.following, action.user]
             }
-            break;
         case REMOVE_FOLLOWING:
             return {
                 ...state,
                 following: state.following.filter(user => user.id !== action.user.id)
             }
-            break;
         case ADD_POST:
             return {
                 ...state,
                 posts: [...state.posts, action.post]
             }
-            break;
         case REMOVE_POST:
             return {
                 ...state,
                 posts: state.posts.filter(post => post.id !== action.post.id)
             }
-            break;
         case ADD_FOLLOWERS:
             return {
                 ...state,
                 followers: [...state.followers, action.user]
             }
-            break;
         case REMOVE_FOLLOWERS:
             return {
                 ...state,
                 followers: state.followers.filter(user => user.id !== action.user.id)
             }
-            break;
         case SAVE_STORY:
             return {
                 ...state,
                 savedStories: [...state.savedStories, action.story]
             }
-            break;
         case UNSAVE_STORY:
             return {
                 ...state,
                 savedStories: state.following.filter(story => story.id !== action.story.id)
             }
-            break;
 
         default:
-            break;
+            return state;
     }
 }
