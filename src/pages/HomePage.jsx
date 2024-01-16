@@ -1,6 +1,12 @@
+import {SidePanel} from "../cmps/SidePanel.jsx";
 
 export function HomePage() {
 
-    return <section>Hello from Home page</section>
+    console.log("DAVAi")
+    return <>
+        <section className="center">Hello from Home page</section>
+        <SidePanel/>
+    </>
+
 
 }

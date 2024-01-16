@@ -26,9 +26,11 @@
 
 @mixin layoutGTC($max) {
   grid-template-columns:
-    minmax($layoutPadding, 1fr)
+  $layoutPadding
+    minmax(300px, 1fr)
     minmax(auto, $max)
-    minmax($layoutPadding, 1fr);
+    minmax(300px, 1fr)
+  $layoutPadding
 }
 
 /* Media  Mixins */
@@ -67,7 +69,7 @@
 
 // Buttons
 
-@mixin btn($type: regular, $bg: $clr1, $clr: $clr3, $padding: em(24px) em(44px), $hover: darken($bg, 8%)) {
+@mixin btn($type: regular, $bg: $dark1, $clr: $clr3, $padding: em(24px) em(44px), $hover: $dark1-1) {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
@@ -91,14 +93,14 @@
     background-color: $clr2;
     color: $clr3;
     &:hover {
-      background-color: $clr1;
+      background-color: $dark1;
       color: $clr3;
     }
   } @else if $type == light {
     background-color: $clr3;
     color: $clr2;
     &:hover {
-      background-color: $clr1;
+      background-color: $dark1;
       color: $clr3;
     }
   }
@@ -107,17 +109,17 @@
 // Type
 
 @mixin type($type: bold) {
-  // type options: 
-  // 1.bold 
-  // 2.boldCondensed 
+  // type options:
+  // 1.bold
+  // 2.boldCondensed
   // 3.condensed
   @if $type == bold {
     font-variation-settings: "wght" 430;
-  } 
+  }
   @else if $type == boldCondensed {
     font-variation-settings: "wght" 430, "wdth" 80;
     letter-spacing: em(6.72px);
-  } 
+  }
   @else if $type == condensed {
     font-variation-settings: "wdth" 80;
     letter-spacing: em(6.72px);

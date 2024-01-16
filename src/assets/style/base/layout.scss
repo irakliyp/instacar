@@ -2,6 +2,18 @@
     display: grid;
     grid-template-columns: $layoutPadding 1fr $layoutPadding;
 
+    >*.left {
+        grid-column: 2;
+    }
+
+    >*.center {
+        grid-column: 3;
+    }
+
+    >*.right {
+        grid-column: 4;
+    }
+
 @include for-narrow-layout {
     @include layoutGTC($break-narrow);
 }
