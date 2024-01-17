@@ -1,0 +1,15 @@
+.main-layout {
+  &.dark {
+    background-color: $dark1;
+
+    .app-header {
+      grid-area: 1 / 2 / 3 / 3;
+      margin: 20px 10px ;
+      color: $light1;
+    }
+  }
+
+  &.light {
+    background-color: $light1;
+  }
+}

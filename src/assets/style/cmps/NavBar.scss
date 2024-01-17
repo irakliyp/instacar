@@ -1,5 +1,28 @@
 .main-layout {
-  .btn {
-    @include btn()
+
+  .nav-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .nav-bar-primary, .nav-bar-secondary{
+      display: grid;
+    }
+    .btn {
+      gap: 13px;
+    }
   }
+
+  &.dark {
+    .btn {
+      @include btn($type: dark);
+    }
+  }
+
+  &.light {
+    .btn {
+      @include btn($type: light);
+    }
+  }
+
 }

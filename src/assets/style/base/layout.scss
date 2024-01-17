@@ -1,17 +1,21 @@
 .main-layout {
     display: grid;
     grid-template-columns: $layoutPadding 1fr $layoutPadding;
+    grid-template-rows: $layoutPadding 80px 1fr $layoutPadding;
+    height: 100vh;
 
     >*.left {
-        grid-column: 2;
+        grid-area: 3 /2;
     }
 
     >*.center {
-        grid-column: 3;
+        grid-row-start: 2;
+        grid-column-start: 3;
+        grid-row-end: none;
     }
 
     >*.right {
-        grid-column: 4;
+        grid-area: 1 / 5 / 4 / 4;
     }
 
 @include for-narrow-layout {
@@ -25,10 +29,13 @@
 @include for-wide-layout {
     @include layoutGTC($break-wide);
 }
-}
 
-.main-layout > * {
-    grid-column: 2;
+    .app-header {
+
+        font-size: x-large;
+        font-family: Cursive;
+        text-decoration: none;
+    }
 }
 
 .main-layout .full {
