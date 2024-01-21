@@ -6,11 +6,8 @@ import {MainLayout} from "./pages/MainLayout";
 import {HomePage} from "./pages/HomePage";
 
 function App() {
-  const [count, setCount] = useState(0)
-    console.log("HELLO")
 
-  return <Provider store={store}>
-      <Router>
+  return <Router>
           <main>
               <Routes>
                   <Route path="/" element={<MainLayout/>}>
@@ -19,7 +16,6 @@ function App() {
               </Routes>
           </main>
       </Router>
-  </Provider>
 }
 
 export default App

@@ -71,8 +71,8 @@ function _createCars() {
     }
 }
 
-function _createCar(vendor, maxSpeed = 250) {
-    const car = getEmptyStory(vendor, maxSpeed)
+function _createStory(txt = '', imgUrl = [], by = {}, loc = {}, comments = [], likedBy = [], tags = []) {
+    const story = getEmptyStory(txt, imgUrl, by, loc, comments = [], likedBy = [], tags = [])
     car.id = utilService.makeId()
     return car
 }

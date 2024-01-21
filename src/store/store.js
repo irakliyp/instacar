@@ -4,8 +4,8 @@ import {userReducer} from "./reducers/user.reducer.js";
 
 
 const rootReducer = combineReducers({
-    storiesReducer,
-    userReducer
+    storiesModule: storiesReducer,
+    usersModule: userReducer
 });
 
 export const store = createStore(rootReducer);

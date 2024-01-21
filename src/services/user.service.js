@@ -1,135 +1,92 @@
-import { utilService } from './util.service.js'
-import { storageService } from './async-storage.service.js'
+import { storageService } from './async-storage.service'
 
-const userDB = 'user_DB'
-_createCars()
+const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
+const STORAGE_KEY_USER_DB = 'user'
 
 export const userService = {
-    query,
-    get,
+    login,
+    logout,
+    signup,
+    getLoggedinUser,
+    saveLocalUser,
+    getUsers,
+    getById,
     remove,
-    save,
-    getEmptyCar,
-    getDefaultFilter,
-    getFilterFromSearchParams,
-    getSpeedStats,
-    getVendorStats,
-    _createBooks
-}
-// For Debug (easy access from console):
-window.cs = userService
-
-function query(users = []) {
-    return storageService.query(userDB)
-        .then(users => {
-            users = users.filter(user => users.includes(user.id))
-            return users;
-        })
+    update,
+    spendBalance,
+    getEmptyUser
 }
 
-function get(userId) {
-    return storageService.get(userDB, userId)
-        .then(user => {
-            return user;
-        })
+window.userService = userService
+
+async function getUsers() {
+    const users = await storageService.query(STORAGE_KEY_USER_DB);
+    return users;
+}
+
+async function getById(userId) {
+    const user = await storageService.get(STORAGE_KEY_USER_DB, userId)
+    return user
 }
 
 function remove(userId) {
-    return storageService.remove(userDB, userId)
+    return storageService.remove(STORAGE_KEY_USER_DB, userId)
 }
 
-function save(user) {
-    if (user.id) {
-        return storageService.put(userDB, user)
-    } else {
-        return storageService.post(userDB, user)
+async function update(userToUpdate) {
+    const user = await getById(userToUpdate.id)
+    const updatedUser = await storageService.put(STORAGE_KEY_USER_DB, { ...user, ...userToUpdate })
+    if (getLoggedinUser().id === updatedUser.id) saveLocalUser(updatedUser)
+    return updatedUser
+}
+
+async function login(userCred) {
+    const users = await storageService.query(STORAGE_KEY_USER_DB)
+    const user = users.find(user => user.username === userCred.username)
+    if (user) {
+        return saveLocalUser(user)
     }
 }
 
-function getEmptyStory(txt = '', imgUrl = [], by = {}, loc = {}, comments = [], likedBy = [], tags = []) {
+async function signup(userCred) {
+
+    if (!userCred.imgUrl) userCred.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
+    const user = await storageService.post(STORAGE_KEY_USER_DB, userCred)
+    return saveLocalUser(user)
+}
+
+async function logout() {
+    sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
+}
+
+function getEmptyUser() {
     return {
-        txt,
-        imgUrl,
-        by,
-        loc,
-        comments,
-        likedBy,
-        tags
+        username: '',
+        fullname: '',
+        password: '',
+        imgUrl: '',
     }
 }
 
-function _createCars() {
-    let cars = utilService.loadFromStorage(userDB)
-    if (!cars || !cars.length) {
-        cars = []
-        const vendors = ['audu', 'fiak', 'subali', 'mitsu']
-        for (let i = 0; i < 20; i++) {
-            const vendor = vendors[utilService.getRandomIntInclusive(0, vendors.length - 1)]
-            cars.push(_createCar(vendor, utilService.getRandomIntInclusive(80, 300)))
-        }
-        utilService.saveToStorage(userDB, cars)
-    }
+async function spendBalance(amount) {
+    const user = getLoggedinUser()
+    if (!user) throw new Error('Not loggedin')
+    user.balance = user.balance - amount
+    return await update(user)
 }
 
-function _createCar(vendor, maxSpeed = 250) {
-    const car = getEmptyStory(vendor, maxSpeed)
-    car.id = utilService.makeId()
-    return car
+function saveLocalUser(user) {
+    user = { id: user.id, fullname: user.fullname, imgUrl: user.imgUrl, balance: user.balance }
+    sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
+    return user
 }
 
-function _setNextPrevCarId(car) {
-    return storageService.query(userDB).then((cars) => {
-        const carIdx = cars.findIndex((currCar) => currCar.id === car.id)
-        const nextCar = cars[carIdx + 1] ? cars[carIdx + 1] : cars[0]
-        const prevCar = cars[carIdx - 1] ? cars[carIdx - 1] : cars[cars.length - 1]
-        car.nextCarId = nextCar.id
-        car.prevCarId = prevCar.id
-        return car
-    })
+function getLoggedinUser() {
+    return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
 
-function _getCarCountBySpeedMap(cars) {
-    const carCountBySpeedMap = cars.reduce((map, car) => {
-        if (car.maxSpeed < 120) map.slow++
-        else if (car.maxSpeed < 200) map.normal++
-        else map.fast++
-        return map
-    }, { slow: 0, normal: 0, fast: 0 })
-    return carCountBySpeedMap
-}
-
-function _getCarCountByVendorMap(cars) {
-    const carCountByVendorMap = cars.reduce((map, car) => {
-        if (!map[car.vendor]) map[car.vendor] = 0
-        map[car.vendor]++
-        return map
-    }, {})
-    return carCountByVendorMap
-}
-function _createBooks() {
-    const ctgs = ['Love', 'Fiction', 'Poetry', 'Computers', 'Religion']
-    const books = []
-    for (let i = 0; i < 20; i++) {
-        const book = {
-            id: utilService.makeId(),
-            title: utilService.makeLorem(2),
-            subtitle: utilService.makeLorem(4),
-            authors: [
-                utilService.makeLorem(1)
-            ],
-            publishedDate: utilService.getRandomIntInclusive(1950, 2024),
-            description: utilService.makeLorem(20),
-            pageCount: utilService.getRandomIntInclusive(20, 600),
-            categories: [ctgs[utilService.getRandomIntInclusive(0, ctgs.length - 1)]],
-            thumbnail: `http://coding-academy.org/books-photos/${i+1}.jpg`,
-            language: "en",
-            listPrice: {
-                amount: utilService.getRandomIntInclusive(80, 500),
-                currencyCode: "EUR",
-                isOnSale: Math.random() > 0.7
-            }
-        }
-        books.push(book)
-    }
-    console.log('books', books)
-}
+// ;(async ()=>{
+//     await userService.signup({fullname: 'Puki Norma', username: 'puki', password:'123', isAdmin: false})
+//     await userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123',  isAdmin: true})
+//     await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', isAdmin: false})
+// })()

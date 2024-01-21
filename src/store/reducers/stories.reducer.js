@@ -1,5 +1,6 @@
 
 export const SET_STORIES = 'SET_STORIES';
+export const SET_STORY = 'SET_STORY';
 export const ADD_STORY = 'ADD_STORY';
 export const REMOVE_STORY = 'REMOVE_STORY';
 export const ADD_IMG = 'ADD_IMG';
@@ -18,6 +19,11 @@ export function storiesReducer(state = initialState, action = {}) {
                 ...state,
                 stories: action.stories
             }
+        case SET_STORY:
+            return {
+                ...state,
+                story: action.story
+            }
         case ADD_STORY:
             return {
                 ...state,
@@ -30,7 +36,7 @@ export function storiesReducer(state = initialState, action = {}) {
             }
         case ADD_IMG: {
             const newStories = state.stories.map(story => {
-                if (story.id === action.storyId) {
+                if (story.id === action.story.id) {
                     story.imgUrl = [...story.imgUrl, action.imgUrl];
                 }
                 return story;
@@ -43,7 +49,7 @@ export function storiesReducer(state = initialState, action = {}) {
         case ADD_COMMENT:
         {
             const newStories = state.stories.map(story =>  {
-                if(story.id === action.storyId){
+                if(story.id === action.story.id){
                     story.comments = [...story.comments, action.comments];
                 }
                 return story;
@@ -56,7 +62,7 @@ export function storiesReducer(state = initialState, action = {}) {
         case LIKE_STORY:
         {
             const newStories = state.stories.map(story =>  {
-                if(story.id === action.storyId){
+                if(story.id === action.story.id){
                     story.likedBy = [...story.likedBy, action.likedBy];
                 }
                 return story;
@@ -69,7 +75,7 @@ export function storiesReducer(state = initialState, action = {}) {
         case ADD_TAG:
         {
             const newStories = state.stories.map(story =>  {
-                if(story.id === action.storyId){
+                if(story.id === action.story.id){
                     story.tags = [...story.tags, action.tags];
                 }
                 return story;

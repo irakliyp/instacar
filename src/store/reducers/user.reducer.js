@@ -1,24 +1,18 @@
-import {REMOVE_STORY} from "./stories.reducer.js";
+import { userService} from "../../services/user.service.js";
 
 export const ADD_FOLLOWING = 'ADD_FOLLOWING';
 export const REMOVE_FOLLOWING = 'REMOVE_FOLLOWING';
-export const ADD_POST = 'ADD_POST';
-export const REMOVE_POST = 'REMOVE_POST';
+export const ADD_STORY = 'ADD_STORY';
+export const REMOVE_STORY = 'REMOVE_STORY';
 export const ADD_FOLLOWERS = 'ADD_FOLLOWERS';
 export const REMOVE_FOLLOWERS = 'REMOVE_FOLLOWERS';
-export const SAVE_STORY = 'SAVE_STORY';
-export const UNSAVE_STORY = 'UNSAVE_STORY';
+export const REMOVE_USER = 'REMOVE_USER';
+export const SET_USERS = 'SET_USERS';
+export const SET_USER = 'SET_USER';
 
 const initialState = {
-    _id: '',
-    username: '',
-    password: '',
-    fullName: '',
-    imgUrl: '',
-    following: [],
-    followers: [],
-    posts: [],
-    savedStories: []
+    user: userService.getLoggedinUser(),
+    users: []
 }
 
 export function userReducer(state = initialState, action = {}) {
@@ -26,44 +20,42 @@ export function userReducer(state = initialState, action = {}) {
         case ADD_FOLLOWING:
             return {
                 ...state,
-                following: [...state.following, action.user]
+                user: {...state.user, following: [...state.user.following, action.user]}
             }
         case REMOVE_FOLLOWING:
             return {
                 ...state,
-                following: state.following.filter(user => user.id !== action.user.id)
+                user: {...state.user, following: state.user.following.filter(following => following.id !== action.user.id)}
             }
-        case ADD_POST:
+        case ADD_STORY:
             return {
                 ...state,
-                posts: [...state.posts, action.post]
+                user: {...state.user, stories: [...state.user.stories, action.story]}
             }
-        case REMOVE_POST:
+        case REMOVE_STORY:
             return {
                 ...state,
-                posts: state.posts.filter(post => post.id !== action.post.id)
+                user: {...state.user, stories: state.user.stories.filter(story => story.id !== action.story.id)}
             }
         case ADD_FOLLOWERS:
             return {
                 ...state,
-                followers: [...state.followers, action.user]
+                user: {...state.user, followers: [...state.user.followers, action.user]}
             }
         case REMOVE_FOLLOWERS:
             return {
                 ...state,
-                followers: state.followers.filter(user => user.id !== action.user.id)
+                user: {...state.user, followers: state.user.followers.filter(follower => follower.id !== action.user.id)}
             }
-        case SAVE_STORY:
+        case REMOVE_USER:
             return {
                 ...state,
-                savedStories: [...state.savedStories, action.story]
+                users: state.users.filter(user => user.id !== action.userId)
             }
-        case UNSAVE_STORY:
-            return {
-                ...state,
-                savedStories: state.following.filter(story => story.id !== action.story.id)
-            }
-
+        case SET_USERS:
+            return { ...state, users: action.users }
+        case SET_USER:
+            return { ...state, user: action.user }
         default:
             return state;
     }
