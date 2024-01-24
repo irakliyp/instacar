@@ -103,7 +103,14 @@
       background-color: $dark1;
       color: $clr3;
     }
+  }@else if $type == blue {
+    background-color: inherit;
+    color: $blue;
+    &:hover {
+      color: $light1;
+    }
   }
+
 }
 
 // Type

@@ -2,22 +2,64 @@
     list-style-type: none;
     display: flex;
     justify-content: center;
+    padding-top: 40px;
 
     .story-details {
         display: flex;
         flex-direction: column;
+        gap: 10px;
+
+        .user-details {
+            display: flex;
+            align-items: center;
+
+            .user-name {
+                padding-left: 10px;
+            }
+
+            .user-icon {
+                width: 40px;
+                height: 40px;
+                background: linear-gradient(to right, #ed8034 0%,#ed8034 33%,#feb123 33%,#feb123);
+                border-radius: 50%;
+            }
+        }
+
+        .story-details-actions {
+            display: flex;
+            justify-content: space-between;
+
+            .primary-actions {
+                display: flex;
+                gap: 10px;
+            }
+        }
 
         &-img {
             max-width: 550px;
             max-height: 550px;
         }
+
+        &-desc {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+
+        .add-comment-container {
+            display: flex;
+            justify-content: space-between;
+
+            .btn {
+                @include btn($type: blue);
+            }
+        }
+        &-add-comment {
+            background-color: inherit;
+            border: none;
+        }
     }
 
 }
 
-.user-icon {
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(to right, #ed8034 0%,#ed8034 33%,#feb123 33%,#feb123);
-    border-radius: 50%;
-}
+
