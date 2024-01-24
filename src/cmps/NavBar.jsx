@@ -10,18 +10,18 @@ export function NavBar() {
 
     const navigation = useNavigate();
 
-    function handleClick(ev) {
-        console.log("ev", ev.target.name);
-        navigation(`/${ev.target.name}`);
+    function handleClick(nav) {
+        navigation(`/${nav}`);
     }
 
-    return <section className="nav-bar left">
+    return <section className="nav-bar">
+        <section className="nav-bar-container">
             <section className="nav-bar-primary">
-                <button className="btn" name="home" onClick={handleClick}>
+                <button className="btn" onClick={() => handleClick('home')}>
                     <div className="icon">
                         <MdHomeFilled />
                     </div>
-                    <span name="home">Home</span>
+                    <span>Home</span>
                 </button>
                 <button className="btn">
                     <div className="icon">
@@ -41,5 +41,6 @@ export function NavBar() {
                     </div>
                     <span>More</span></button>
             </section>
+        </section>
     </section>
 }

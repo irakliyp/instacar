@@ -1,20 +1,21 @@
 import {SidePanel} from "../cmps/SidePanel.jsx";
-import {userService} from "../services/user.service.js"
-import {loadUsers} from "../store/actions/user.actions.js";
 import {useSelector} from "react-redux";
 import {useEffect} from "react";
+import {loadStories} from "../store/actions/stories.actions.js";
+import {StoryIndex} from "../cmps/StoryIndex";
 
 export function HomePage() {
 
-    useEffect(() => {
-        loadUsers();
-    }, [])
+    const stories = useSelector(storeState => storeState.storiesModule.stories);
 
-    const users = useSelector(storeState => storeState.usersModule.users);
-    console.log("users", users)
+    useEffect(() => {
+        loadStories();
+    }, [stories?.length])
 
     return <>
-        <section className="center">Hello from Home page</section>
+        <section className="center">
+            <StoryIndex stories={stories}/>
+        </section>
         <SidePanel/>
     </>
 

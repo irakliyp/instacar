@@ -1,9 +1,16 @@
 .main-layout {
 
   .nav-bar {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    position: fixed;
+    top: 100px;
+    left: 30px;
+
+    .nav-bar-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 88vh;
+    }
 
     .nav-bar-primary, .nav-bar-secondary{
       display: grid;
