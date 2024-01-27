@@ -8,6 +8,7 @@ export function HomePage() {
 
     const stories = useSelector(storeState => storeState.storiesModule.stories);
 
+    debugger;
     useEffect(() => {
         loadStories();
     }, [stories?.length])

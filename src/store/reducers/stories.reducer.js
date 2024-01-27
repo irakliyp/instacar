@@ -61,12 +61,8 @@ export function storiesReducer(state = initialState, action = {}) {
         }
         case LIKE_STORY:
         {
-            const newStories = state.stories.map(story =>  {
-                if(story.id === action.story.id){
-                    story.likedBy = [...story.likedBy, action.likedBy];
-                }
-                return story;
-            });
+            debugger;
+            const newStories = state.stories.map(story =>  story.id === action.story.id ? action.story :story);
             return {
                 ...state,
                 stories: newStories

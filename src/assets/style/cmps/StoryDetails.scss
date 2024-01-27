@@ -57,6 +57,11 @@
         &-add-comment {
             background-color: inherit;
             border: none;
+            color: inherit;
+
+            &:focus-visible {
+                outline: none;
+            }
         }
     }
 
