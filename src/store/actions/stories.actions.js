@@ -1,6 +1,6 @@
 import {store} from "../store.js";
 import {storiesService} from "../../services/stories.service.js";
-import {LIKE_STORY, SET_STORIES} from "../reducers/stories.reducer.js";
+import {ADD_COMMENT, LIKE_STORY, SET_STORIES} from "../reducers/stories.reducer.js";
 
 export async function loadStories() {
     try {
@@ -21,4 +21,10 @@ export async function toggleLike(story, user) {
     }
     await storiesService.save(story);
     store.dispatch({type: LIKE_STORY, story});
+}
+
+export async function addComment(story, comment) {
+    story.comments = [...story.comments, comment]
+    await storiesService.save(story);
+    store.dispatch({type: ADD_COMMENT, story});
 }

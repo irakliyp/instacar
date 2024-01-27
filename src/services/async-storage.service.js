@@ -20,7 +20,6 @@ function get(entityType, entityId) {
 }
 
 function post(entityType, newEntity) {
-    debugger;
     newEntity = {...newEntity}
     newEntity.id = _makeId()
     return query(entityType).then(entities => {

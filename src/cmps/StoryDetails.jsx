@@ -2,15 +2,22 @@ import {FaHeart, FaRegComment} from "react-icons/fa";
 import { FiSend } from "react-icons/fi";
 import { FaRegBookmark, FaRegHeart } from "react-icons/fa6";
 import {useSelector} from "react-redux";
-import {toggleLike} from "../store/actions/stories.actions.js";
+import {addComment, toggleLike} from "../store/actions/stories.actions.js";
+import {useState} from "react";
 
 export function StoryDetails({story}) {
     const {txt, imgUrl, by, loc, comments, likedBy, tags} = story;
     const {fullname, imgUrl: userImage} = by;
     const user = useSelector(storeState => storeState.usersModule.user);
+    const [comment, setComment] = useState('');
+
+    function postComment() {
+        addComment(story, {id: user.id, txt: comment});
+        setComment('')
+    }
+
     const liked = likedBy.find(likedUser => likedUser.id === user.id);
 
-    console.log("ID: ", txt);
     return <section className="story-details">
         <div className="user-details">
             <img className="user-icon" src={userImage}/>
@@ -36,8 +43,8 @@ export function StoryDetails({story}) {
         </div>
         <div>View all {comments.length} comments</div>
         <div className="add-comment-container">
-            <input className="story-details-add-comment" type="text" placeholder="Add a comment..."/>
-            <button className="btn">Post</button>
+            <input className="story-details-add-comment" type="text" placeholder="Add a comment..." value={comment} onChange={ev => setComment(ev.target.value)}/>
+            <button className="btn" onClick={postComment}>Post</button>
         </div>
     </section>
 }
