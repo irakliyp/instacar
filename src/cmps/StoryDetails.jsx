@@ -21,7 +21,7 @@ export function StoryDetails({story}) {
     return <section className="story-details">
         <div className="user-details">
             <img className="user-icon" src={userImage}/>
-            <span className="user-name">{fullname}</span>
+            <span className="user-name bold">{fullname}</span>
         </div>
         <img className="story-details-img" src={imgUrl}/>
         <div className="story-details-actions icon">
@@ -36,12 +36,12 @@ export function StoryDetails({story}) {
                 <FaRegBookmark/>
             </div>
         </div>
-        <div>{likedBy.length} likes</div>
+        <div className="bold">{likedBy.length} likes</div>
         <div className="story-details-desc">
-            <div>{fullname}</div>
+            <div className="bold">{fullname}</div>
             <div>{txt}</div>
         </div>
-        <div>View all {comments.length} comments</div>
+        <div className="gray">View all {comments.length} comments</div>
         <div className="add-comment-container">
             <input className="story-details-add-comment" type="text" placeholder="Add a comment..." value={comment} onChange={ev => setComment(ev.target.value)}/>
             <button className="btn" onClick={postComment}>Post</button>

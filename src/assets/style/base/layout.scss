@@ -1,6 +1,6 @@
 .main-layout {
     display: grid;
-    grid-template-columns: 300px 1fr 300px;
+    grid-template-columns: 337px 1fr 300px;
 
     >*.left {
         grid-column-start: 1;
@@ -9,6 +9,7 @@
     >*.center {
         grid-column-start: 2;
         grid-row-end: none;
+        border-left: 1px solid rgba(127, 130, 133, 0.40);
     }
 
     >*.right {

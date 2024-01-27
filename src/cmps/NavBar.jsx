@@ -18,25 +18,25 @@ export function NavBar() {
         <section className="nav-bar-container">
             <section className="nav-bar-primary">
                 <button className="btn" onClick={() => handleClick('home')}>
-                    <div className="icon">
+                    <div className="nav-icon">
                         <MdHomeFilled />
                     </div>
                     <span>Home</span>
                 </button>
                 <button className="btn">
-                    <div className="icon">
+                    <div className="nav-icon">
                         <BiMessageSquareEdit />
                     </div>
                     <span>Message</span></button>
                 <button className="btn">
-                    <div className="icon">
+                    <div className="nav-icon">
                         <LuPlusSquare />
                     </div>
                     <span>Create</span></button>
             </section>
             <section className="nav-bar-secondary">
                 <button className="btn">
-                    <div className="icon">
+                    <div className="nav-icon">
                         <VscThreeBars />
                     </div>
                     <span>More</span></button>

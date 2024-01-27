@@ -75,7 +75,7 @@
   text-decoration: none;
   padding: $padding;
   line-height: 1.25;
-  font-size: em(16px);
+  font-size: em(19px);
   font-variation-settings: "wght" 430;
   border: none;
   border-radius: 7px;
@@ -111,6 +111,19 @@
     }
   }
 
+}
+
+// Input
+
+@mixin text($type: regular) {
+  color: inherit;
+
+  @if $type == gray {
+    color: rgb(168, 168, 168)
+  }
+  @else if $type == bold {
+    font-weight: bold;
+  }
 }
 
 // Type

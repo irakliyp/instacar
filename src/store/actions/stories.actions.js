@@ -28,3 +28,8 @@ export async function addComment(story, comment) {
     await storiesService.save(story);
     store.dispatch({type: ADD_COMMENT, story});
 }
+
+export function setStory(storyId) {
+
+
+}
