@@ -25,46 +25,48 @@
             }
         }
 
-        .story-details-actions {
-            display: flex;
-            justify-content: space-between;
-
-            .primary-actions {
-                display: flex;
-                gap: 10px;
-            }
-        }
-
         &-img {
             max-width: 550px;
             max-height: 550px;
         }
-
-        &-desc {
-            display: flex;
-            flex-direction: row;
-            gap: 10px;
-        }
-
-        .add-comment-container {
-            display: flex;
-            justify-content: space-between;
-
-            .btn {
-                @include btn($type: blue);
-            }
-        }
-
-        &-add-comment {
-            background-color: inherit;
-            border: none;
-            @include text($type: regular);
-
-            &:focus-visible {
-                outline: none;
-            }
-        }
     }
+}
+
+.story-details-actions {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .primary-actions {
+        display: flex;
+        gap: 10px;
+    }
+}
+
+.add-comment-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .btn-post {
+        @include btn($type: blue);
+    }
+}
+
+.add-comment {
+    background-color: inherit;
+    border: none;
+    @include text($type: regular);
+
+    &:focus-visible {
+        outline: none;
+    }
+}
+
+.story-details-desc {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
 
 

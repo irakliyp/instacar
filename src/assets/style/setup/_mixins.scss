@@ -112,6 +112,16 @@
   }
 
 }
+// Border
+@mixin border($type: left) {
+
+  @if $type == left {
+    border-left: 1px solid rgba(127, 130, 133, 0.40);
+  }
+  @else if $type == bottom {
+    border-bottom: 1px solid rgba(127, 130, 133, 0.40);
+  }
+}
 
 // Input
 

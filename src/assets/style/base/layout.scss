@@ -2,19 +2,7 @@
     display: grid;
     grid-template-columns: 337px 1fr 300px;
 
-    >*.left {
-        grid-column-start: 1;
-    }
 
-    >*.center {
-        grid-column-start: 2;
-        grid-row-end: none;
-        border-left: 1px solid rgba(127, 130, 133, 0.40);
-    }
-
-    >*.right {
-        grid-column-start: 3;
-    }
 //
 //@include for-narrow-layout {
 //    @include layoutGTC($break-narrow);
@@ -34,6 +22,21 @@
         font-family: Cursive;
         text-decoration: none;
     }
+}
+
+.left {
+    grid-column-start: 1;
+}
+
+.center {
+    grid-column-start: 2;
+    grid-row-end: none;
+    @include border($type: left);
+    //border-left: 1px solid rgba(127, 130, 133, 0.40);
+}
+
+.right {
+    grid-column-start: 3;
 }
 
 .main-layout .full {

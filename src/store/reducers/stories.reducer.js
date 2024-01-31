@@ -9,6 +9,7 @@ export const LIKE_STORY = 'LIKE_STORY';
 export const ADD_TAG = 'ADD_TAG';
 
 const initialState = {
+    story: null,
     stories: []
 }
 

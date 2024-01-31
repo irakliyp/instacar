@@ -3,7 +3,7 @@ import {HashRouter as Router, Route, Routes} from "react-router-dom";
 import {MainLayout} from "./pages/MainLayout";
 import {HomePage} from "./pages/HomePage";
 import {loadUsers, login} from "./store/actions/user.actions.js";
-import {useSelector} from "react-redux";
+import {StoryPreview} from "./pages/StoryPreview.jsx";
 
 function App() {
 
@@ -22,6 +22,7 @@ function App() {
                   <Route path="/" element={<MainLayout/>}>
                       <Route path="home" element={<HomePage/>}/>
                   </Route>
+                  <Route path="/story/:storyId" element={<StoryPreview/>}/>
               </Routes>
           </main>
       </Router>

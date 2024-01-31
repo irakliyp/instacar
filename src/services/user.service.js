@@ -13,11 +13,10 @@ export const userService = {
     getById,
     remove,
     update,
-    spendBalance,
-    getEmptyUser
+    spendBalance
 }
 
-window.userService = userService
+// window.userService = userService
 
 async function getUsers() {
     const users = await storageService.query(STORAGE_KEY_USER_DB);
@@ -25,8 +24,13 @@ async function getUsers() {
 }
 
 async function getById(userId) {
-    const user = await storageService.get(STORAGE_KEY_USER_DB, userId)
-    return user
+    try {
+        const user = await storageService.get(STORAGE_KEY_USER_DB, userId);
+        return user;
+    }
+    catch (e) {
+        return _getEmptyUser();
+    }
 }
 
 function remove(userId) {
@@ -59,15 +63,6 @@ async function logout() {
     sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
 }
 
-function getEmptyUser() {
-    return {
-        username: '',
-        fullname: '',
-        password: '',
-        imgUrl: '',
-    }
-}
-
 async function spendBalance(amount) {
     const user = getLoggedinUser()
     if (!user) throw new Error('Not loggedin')
@@ -85,6 +80,10 @@ function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
 
+function _getEmptyUser() {
+    return {fullname: 'John', username: 'Dow', password:'123', isAdmin: false, imgUrl: 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'}
+}
+//
 // ;(async ()=>{
 //     await userService.signup({fullname: 'Puki Norma', username: 'puki', password:'123', isAdmin: false})
 //     await userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123',  isAdmin: true})

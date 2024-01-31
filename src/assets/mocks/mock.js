@@ -5,17 +5,17 @@ export const stories = [
             'https://res.cloudinary.com/dw6usqu1w/image/upload/v1705573599/cld-sample-4.jpg'
         ],
         by: {
-        "fullname": "Puki Norma",
-        "username": "puki",
+        "fullname": "Muki G",
+        "username": "Muki",
         "password": "123",
         "isAdmin": false,
         "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
-        "id": "ULaH4"
+        "id": "BaNHs"
         },
         loc: {},
         comments: [
             {
-                id: "ULaH4",
+                id: "E20J5",
                 txt: "Hello"
             }
         ],
@@ -42,12 +42,12 @@ export const stories = [
             "password": "123",
             "isAdmin": false,
             "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
-            "id": "ULaH4"
+            "id": "BaNHs"
         },
         loc: {},
         comments: [
             {
-                id: "ULaH4",
+                id: "E20J5",
                 txt: "Hello"
             }
         ],
@@ -74,12 +74,12 @@ export const stories = [
             "password": "123",
             "isAdmin": false,
             "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
-            "id": "ULaH4"
+            "id": "E20J5"
         },
         loc: {},
         comments: [
             {
-                id: "ULaH4",
+                id: "E20J5",
                 txt: "Hello"
             }
         ],
@@ -98,7 +98,7 @@ export const stories = [
                 "password": "123",
                 "isAdmin": false,
                 "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
-                "id": "ULaH4"
+                "id": "E20J5"
             }
         ],
         tags: []
@@ -119,7 +119,7 @@ export const stories = [
         loc: {},
         comments: [
             {
-                id: "ULaH4",
+                id: "E20J5",
                 txt: "Hello world"
             }
         ],
@@ -130,7 +130,7 @@ export const stories = [
                 "password": "123",
                 "isAdmin": false,
                 "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
-                "id": "ULaH4"
+                "id": "E20J5"
             }
         ],
         tags: []

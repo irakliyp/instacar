@@ -15,4 +15,8 @@
   &.light {
     background-color: $light1;
   }
+
+  &.open {
+    opacity: 0.5;
+  }
 }

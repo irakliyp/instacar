@@ -1,6 +1,7 @@
 import {store} from "../store.js";
 import {storiesService} from "../../services/stories.service.js";
-import {ADD_COMMENT, LIKE_STORY, SET_STORIES} from "../reducers/stories.reducer.js";
+import {ADD_COMMENT, LIKE_STORY, SET_STORIES, SET_STORY} from "../reducers/stories.reducer.js";
+import {userService} from "../../services/user.service.js";
 
 export async function loadStories() {
     try {
@@ -27,9 +28,17 @@ export async function addComment(story, comment) {
     story.comments = [...story.comments, comment]
     await storiesService.save(story);
     store.dispatch({type: ADD_COMMENT, story});
+    await setStory(story);
 }
 
-export function setStory(storyId) {
+export async function setStory(storyToSet) {
+    const promises = storyToSet.comments.map(async (comment) => {
+        return {
+            txt: comment.txt,
+            user: await userService.getById(comment.id)
+        }
+    });
+     const story = {...storyToSet, comments: await Promise.all(promises)};
 
-
+    store.dispatch({type: SET_STORY, story})
 }
