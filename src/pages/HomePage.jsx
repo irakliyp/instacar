@@ -13,10 +13,12 @@ export function HomePage() {
     }, [stories?.length])
 
     return <>
-        <section className="center">
+        <section className="home-page center">
+            <section>
             <StoryIndex stories={stories}/>
+            </section>
+            <SidePanel/>
         </section>
-        <SidePanel/>
     </>
 
 

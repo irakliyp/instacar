@@ -1,0 +1,132 @@
+.new-post {
+  &-modal {
+    position: fixed;
+    inset-block: 100px;
+    inset-inline: 28vw;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 0 0 100vmax rgba(0,0,0,.5);
+    background: inherit;
+    color: inherit;
+  }
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &-header {
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    @include border($type: bottom)
+  }
+
+  &-file-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 20px;
+    font-weight: 400;
+
+  }
+
+  &-upload-button {
+    width: 170px;
+    height: 30px;
+    background-color: rgb(0, 149, 246);
+    color: $light1;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgb(24, 119, 242);
+    }
+  }
+
+  &-share-container {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    height: 100%;
+
+    .img-container {
+      overflow: hidden;
+      @include border($type: right);
+      background-color: rgb(250, 250, 250);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+      .user-details {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+
+      &.padding {
+        padding-bottom: 17px;
+      }
+
+      .user-name {
+        padding-left: 10px;
+      }
+
+      .user-icon {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(to right, #ed8034 0%,#ed8034 33%,#feb123 33%,#feb123);
+        border-radius: 50%;
+      }
+    }
+
+    .desc-container {
+      display: flex;
+      flex-direction: column;
+      padding: 20px 20px;
+
+      textarea {
+        height: 100%;
+        border: none;
+        font-size: 16px;
+        font-family: inherit;
+        resize: none;
+
+        &:focus-visible {
+          outline: none;
+        }
+      }
+
+      .word-length {
+        color: rgb(199, 199, 199);
+        display: flex;
+        justify-content: end;      }
+    }
+  }
+}
+
+.header-file-selected {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+
+  @include border($type: bottom);
+
+  &-button {
+    font-family: inherit;
+    @include btn($type: blue);
+  }
+}
+
+
+
+

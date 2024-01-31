@@ -2,6 +2,6 @@
 
 export function SidePanel() {
 
-    return <section className="right">Hello from Right panel</section>
+    return <section className="side-panel">Hello from Right panel</section>
 
 }

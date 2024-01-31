@@ -1,9 +1,0 @@
-.car-filter {
-    background-color: var(--clr2bg);
-    padding: 1em;
-}
-
-.car-filter form {
-    display: grid;
-    grid-template-columns: 100px 200px;
-}

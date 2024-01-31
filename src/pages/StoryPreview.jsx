@@ -12,7 +12,6 @@ export function StoryPreview({story}) {
     const dispatch = useDispatch();
 
     useEffect(() => {
-debugger;
         if (story) {
             setTimeout(() => {
                 document.addEventListener('click', handleClickOutside)

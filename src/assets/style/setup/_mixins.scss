@@ -97,17 +97,17 @@
       color: $clr3;
     }
   } @else if $type == light {
-    background-color: $clr3;
+    background-color: $light1;
     color: $clr2;
     &:hover {
-      background-color: $dark1;
-      color: $clr3;
+      background-color: $light1-1;
+      color: $clr2;
     }
   }@else if $type == blue {
     background-color: inherit;
     color: $blue;
     &:hover {
-      color: $light1;
+      color: $dark1;
     }
   }
 
@@ -120,6 +120,12 @@
   }
   @else if $type == bottom {
     border-bottom: 1px solid rgba(127, 130, 133, 0.40);
+  }
+  @else if $type == top {
+    border-top: 1px solid rgba(127, 130, 133, 0.40);
+  }
+  @else if $type == right {
+    border-right: 1px solid rgba(127, 130, 133, 0.40);
   }
 }
 

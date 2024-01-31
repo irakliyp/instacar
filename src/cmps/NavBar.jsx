@@ -6,7 +6,7 @@ import {useNavigate} from "react-router-dom";
 
 
 
-export function NavBar() {
+export function NavBar({toggleNewPostModal}) {
 
     const navigation = useNavigate();
 
@@ -28,7 +28,7 @@ export function NavBar() {
                         <BiMessageSquareEdit />
                     </div>
                     <span>Message</span></button>
-                <button className="btn">
+                <button className="btn" onClick={toggleNewPostModal}>
                     <div className="nav-icon">
                         <LuPlusSquare />
                     </div>
