@@ -1,6 +1,6 @@
 import { userService } from "../../services/user.service.js";
 
-import { REMOVE_USER, SET_USER, SET_USERS } from "../reducers/user.reducer"
+import {FOLLOW_USER, REMOVE_USER, SET_USER, SET_USERS} from "../reducers/user.reducer"
 
 import { store } from "../store"
 
@@ -63,5 +63,14 @@ export async function logout() {
         console.log('Cannot logout', err)
         throw err
     }
+}
+
+export async function follow(user, id) {
+    const updatedUser = {...user, following: [...user.following, {id: id}]}
+    await userService.update(updatedUser);
+    store.dispatch({
+        type: FOLLOW_USER,
+        user: updatedUser
+    })
 }
 

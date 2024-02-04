@@ -12,8 +12,7 @@ export const userService = {
     getUsers,
     getById,
     remove,
-    update,
-    spendBalance
+    update
 }
 
 // window.userService = userService
@@ -63,15 +62,8 @@ async function logout() {
     sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
 }
 
-async function spendBalance(amount) {
-    const user = getLoggedinUser()
-    if (!user) throw new Error('Not loggedin')
-    user.balance = user.balance - amount
-    return await update(user)
-}
-
 function saveLocalUser(user) {
-    user = { id: user.id, fullname: user.fullname, imgUrl: user.imgUrl, balance: user.balance }
+    user = { id: user.id, fullname: user.fullname, imgUrl: user.imgUrl, following: user.following }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
@@ -83,9 +75,15 @@ function getLoggedinUser() {
 function _getEmptyUser() {
     return {fullname: 'John', username: 'Dow', password:'123', isAdmin: false, imgUrl: 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'}
 }
-//
+
 // ;(async ()=>{
-//     await userService.signup({fullname: 'Puki Norma', username: 'puki', password:'123', isAdmin: false})
-//     await userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123',  isAdmin: true})
-//     await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', isAdmin: false})
+//     await userService.signup({fullname: 'Merab P', username: 'Merab', password:'123', isAdmin: false, id:'1111', following:[{id:2222}]})
+//     await userService.signup({fullname: 'Zurab P', username: 'Zurab', password:'123',  isAdmin: true, id:'2222', following:[{id:3333}, {id:1111}]})
+//     await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', isAdmin: false, id:'3333', following:[{id:1111}]})
+//     await userService.signup({fullname: 'Tiana P', username: 'Tiana', password:'123', isAdmin: false, id:'4444', following:[{id:5555}]})
+//     await userService.signup({fullname: 'Rom P', username: 'Rom', password:'123',  isAdmin: true, id:'5555', following:[{id:3333}, {id:4444}]})
+//     await userService.signup({fullname: 'Irakliy P', username: 'Irakliy', password:'123', isAdmin: false, id:'6666', following:[{id:7777}, {id:1111}, {id:2222}]})
+//     await userService.signup({fullname: 'Kristina P', username: 'Kristina', password:'123', isAdmin: false, id:'7777', following:[{id:5555}]})
+//     await userService.signup({fullname: 'Regina M', username: 'Regina', password:'123',  isAdmin: true, id:'8888', following:[{id:2222}, {id:6666}]})
+//     await userService.signup({fullname: 'Andrey Goncharov', username: 'Andrey', password:'123', isAdmin: false, id:'9999', following:[{id:1111}]})
 // })()

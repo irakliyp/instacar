@@ -10,8 +10,7 @@ function App() {
     useEffect( () => {
         async function fetchData() {
             await loadUsers();
-            await login({username: 'puki'});
-            // ...
+            await login({username: 'Irakliy'});
         }
         fetchData();
     }, [])

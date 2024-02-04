@@ -1,0 +1,65 @@
+
+.side-panel {
+  padding-top: 50px;
+
+  .suggestion {
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      gap: 10px;
+
+      ul {
+        padding-top: 0;
+        margin: -5px;
+      }
+
+      &-item {
+        list-style: none;
+      }
+    }
+
+    &-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 350px;
+      align-items: center;
+
+      .user-details {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+
+        .user-name {
+
+          &-container {
+            display: flex;
+            flex-direction: column;
+          }
+        }
+
+        .user-icon {
+          width: 40px;
+          height: 40px;
+          background: linear-gradient(to right, #ed8034 0%,#ed8034 33%,#feb123 33%,#feb123);
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+
+  button {
+    @include btn($type: blue);
+
+    &.see-all {
+      color: black;
+
+      &:hover {
+        color: $gray;
+      }
+    }
+  }
+}
+

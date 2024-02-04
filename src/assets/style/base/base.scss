@@ -11,6 +11,9 @@ body {
 .gray {
   @include text($type: gray);
 }
+.dark-gray {
+  @include text($type: darkGray);
+}
 
 .icon {
   svg {

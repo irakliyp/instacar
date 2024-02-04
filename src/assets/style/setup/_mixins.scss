@@ -135,10 +135,13 @@
   color: inherit;
 
   @if $type == gray {
-    color: rgb(168, 168, 168)
+    color: $gray;
   }
   @else if $type == bold {
     font-weight: bold;
+  }
+  @else if $type == darkGray {
+    color: rgb(115, 115, 115);
   }
 }
 

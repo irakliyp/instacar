@@ -5,28 +5,28 @@ export const stories = [
             'https://res.cloudinary.com/dw6usqu1w/image/upload/v1705573599/cld-sample-4.jpg'
         ],
         by: {
-        "fullname": "Muki G",
+        "fullname": "Zurab P",
         "username": "Muki",
         "password": "123",
         "isAdmin": false,
         "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
-        "id": "BaNHs"
+        "id": "2222"
         },
         loc: {},
         comments: [
             {
-                id: "E20J5",
+                id: "1111",
                 txt: "Hello"
             }
         ],
         likedBy: [
             {
-                "fullname": "Master Adminov",
-                "username": "admin",
+                "fullname": "Merab P",
+                "username": "Merab",
                 "password": "123",
-                "isAdmin": true,
+                "isAdmin": false,
                 "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
-                "id": "HrFX8"
+                "id": "1111"
             }
         ],
         tags: []
@@ -37,28 +37,28 @@ export const stories = [
             'https://res.cloudinary.com/dw6usqu1w/image/upload/v1705573599/cld-sample-4.jpg'
         ],
         by: {
-            "fullname": "Puki Norma",
-            "username": "puki",
+            "fullname": "Merab P",
+            "username": "Merab",
             "password": "123",
             "isAdmin": false,
             "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
-            "id": "BaNHs"
+            "id": "1111"
         },
         loc: {},
         comments: [
             {
-                id: "E20J5",
+                id: "3333",
                 txt: "Hello"
             }
         ],
         likedBy: [
             {
-                "fullname": "Master Adminov",
-                "username": "admin",
+                "fullname": "Tiana P",
+                "username": "Tiana",
                 "password": "123",
-                "isAdmin": true,
+                "isAdmin": false,
                 "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
-                "id": "HrFX8"
+                "id": "4444"
             }
         ],
         tags: []
@@ -69,36 +69,36 @@ export const stories = [
             'https://res.cloudinary.com/dw6usqu1w/image/upload/v1705573599/cld-sample-4.jpg'
         ],
         by: {
-            "fullname": "Puki Norma",
-            "username": "puki",
+            "fullname": "Regina M",
+            "username": "Regina",
             "password": "123",
             "isAdmin": false,
             "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
-            "id": "E20J5"
+            "id": "8888"
         },
         loc: {},
         comments: [
             {
-                id: "E20J5",
+                id: "3333",
                 txt: "Hello"
             }
         ],
         likedBy: [
             {
-                "fullname": "Master Adminov",
-                "username": "admin",
-                "password": "123",
-                "isAdmin": true,
-                "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
-                "id": "HrFX8"
-            },
-            {
-                "fullname": "Puki Norma",
-                "username": "puki",
+                "fullname": "Irakliy P",
+                "username": "Irakliy",
                 "password": "123",
                 "isAdmin": false,
                 "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
-                "id": "E20J5"
+                "id": "6666"
+            },
+            {
+                "fullname": "Kristina P",
+                "username": "Kristina",
+                "password": "123",
+                "isAdmin": false,
+                "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+                "id": "7777"
             }
         ],
         tags: []
@@ -109,28 +109,28 @@ export const stories = [
             'https://res.cloudinary.com/dw6usqu1w/image/upload/v1705573598/cld-sample-3.jpg'
         ],
         by: {
-            "fullname": "Master Adminov",
-            "username": "admin",
+            "fullname": "Irakliy P",
+            "username": "Irakliy",
             "password": "123",
-            "isAdmin": true,
+            "isAdmin": false,
             "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
-            "id": "HrFX8"
+            "id": "6666"
         },
         loc: {},
         comments: [
             {
-                id: "E20J5",
+                id: "7777",
                 txt: "Hello world"
             }
         ],
         likedBy: [
             {
-                "fullname": "Puki Norma",
-                "username": "puki",
+                "fullname": "Zurab P",
+                "username": "Zurab",
                 "password": "123",
                 "isAdmin": false,
                 "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
-                "id": "E20J5"
+                "id": "2222"
             }
         ],
         tags: []
