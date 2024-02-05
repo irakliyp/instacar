@@ -5,7 +5,7 @@ import {follow} from "../store/actions/user.actions.js";
 export function SidePanel() {
     const user = useSelector(storeState => storeState.usersModule.user);
     const users = useSelector(storeState => storeState.usersModule.users);
-    const {fullname, username, password, isAdmin, id, imgUrl, following} = user;
+    const {id, following} = user;
 
     const isFollowing = userItem => {
         if(userItem.id === id) {

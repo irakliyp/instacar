@@ -46,7 +46,7 @@ export function StoryActions({story, viewComments}) {
         {viewComments && <div className="gray" onClick={previewStory}>View all {comments.length} comments</div>}
         <div className="add-comment-container">
             <input className="add-comment" type="text" placeholder="Add a comment..." value={comment} onChange={ev => setComment(ev.target.value)}/>
-            <button className="btn-post" onClick={postComment}>Post</button>
+            <button className="btn-post" disabled={comment.length > 0 ? false : true} onClick={postComment}>Post</button>
     </div>
     </>
 }
