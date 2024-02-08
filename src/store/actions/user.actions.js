@@ -66,7 +66,9 @@ export async function logout() {
 }
 
 export async function follow(user, id) {
-    const updatedUser = {...user, following: [...user.following, {id: id}]}
+    let updatedUser;
+    if(user.following) updatedUser = {...user, following: [...user?.following, {id: id}]}
+    else updatedUser = {...user, following: [{id: id}]}
     await userService.update(updatedUser);
     store.dispatch({
         type: FOLLOW_USER,

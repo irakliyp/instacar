@@ -12,7 +12,7 @@ export function SidePanel() {
             return true;
         }
         let contains = false;
-        following.forEach(follower => {
+        following?.forEach(follower => {
             if(follower.id === +userItem.id) {
                 contains = true;
             }

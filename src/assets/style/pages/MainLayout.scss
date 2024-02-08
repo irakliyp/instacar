@@ -1,4 +1,6 @@
 .main-layout {
+
+
   &.dark {
     background-color: $dark1;
     color: $light1;
@@ -27,4 +29,8 @@
   &.open {
     opacity: 0.5;
   }
+}
+
+.app-header {
+  color: black;
 }

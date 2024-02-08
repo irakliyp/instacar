@@ -6,6 +6,7 @@ import {storiesService} from "../services/stories.service.js";
 import { MdVerified } from "react-icons/md";
 import { LiaTableSolid } from "react-icons/lia";
 import {FaRegBookmark} from "react-icons/fa6";
+import {useSelector} from "react-redux";
 
 
 
@@ -13,6 +14,7 @@ export function Profile() {
     const location = useLocation();
     const profileName = location.pathname.substring(1);
     const [user, setUser] = useState(null);
+    const loggedUser = useSelector(storeState => storeState.usersModule.user);
     const [stories, setStories] = useState([]);
     const [selectedTab, setSelectedTab] = useState(1);
     const [followers, setFollowers] = useState([]);
@@ -42,6 +44,15 @@ export function Profile() {
         setSelectedTab(selection);
     }
 
+    function renderButtons() {
+        if(loggedUser.id === user.id) {
+            return <>
+                <button className="margin-left bold">Edit profile</button>
+                <button className="bold">View archive</button>
+            </>
+        }
+    }
+
     if(!user) return <div></div>
     const {fullname, username, password, isAdmin, id, imgUrl, following} = user;
     const style = {
@@ -60,8 +71,7 @@ export function Profile() {
                     <div className="profile-details-header">
                         <div>{fullname}</div>
                         <MdVerified style={style}/>
-                        <button className="margin-left">Following</button>
-                        <button>Message</button>
+                        {renderButtons()}
                         <button><IoPersonAddOutline/></button>
                     </div>
                     <div className="profile-details-other">
