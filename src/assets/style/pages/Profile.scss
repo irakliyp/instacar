@@ -1,0 +1,131 @@
+.profile {
+  width: 100%;
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+
+  &-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+
+    &-details {
+      display: flex;
+      flex-direction: row;
+      margin-right: 25%;
+
+      .profile-icon {
+        width: 280px;
+        height: 200px;
+        img {
+          width: 180px;
+          height: 180px;
+        }
+      }
+
+      .profile-details {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+
+        &-header {
+          display: flex;
+          flex-direction: row;
+          gap: 5px;
+
+          button {
+
+            &.margin-left {
+              margin-left: 10px;
+            }
+          }
+        }
+
+        &-other {
+          display: flex;
+          flex-direction: row;
+          gap: 20px;
+          align-self: start;
+
+          .other {
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+          }
+        }
+      }
+
+
+    }
+
+    &-tabs {
+      width: 100%;
+      @include border($type: top);
+
+      .tabs-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 40px;
+
+        .tab {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          padding-top: 15px;
+          gap: 5px;
+          cursor: pointer;
+
+          &.selected {
+            @include border($type: topDark);
+          }
+        }
+      }
+    }
+
+    &-content {
+      margin-top: 20px;
+      width: 100%;
+    }
+  }
+
+}
+
+.posts {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(3, auto);
+  gap: 30px;
+
+  .post-comment {
+    display: none;
+    position: relative;
+    bottom: 50%;
+    left: 50%;
+    width: 30px;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    color: white;
+  }
+
+  img:hover + .post-comment {
+    display: flex;
+
+
+  }
+  img {
+    width: auto;
+    max-width: 300px;
+    height: 200px;
+
+
+    &:hover {
+      opacity: 0.5;
+
+
+    }
+  }
+}

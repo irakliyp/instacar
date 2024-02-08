@@ -127,6 +127,9 @@
   @else if $type == right {
     border-right: 1px solid rgba(127, 130, 133, 0.40);
   }
+  @else if $type == topDark {
+    border-top: 1px solid black;
+  }
 }
 
 // Input

@@ -12,7 +12,9 @@ export const userService = {
     getUsers,
     getById,
     remove,
-    update
+    update,
+    getByUsername,
+    getFollowers
 }
 
 // window.userService = userService
@@ -20,6 +22,23 @@ export const userService = {
 async function getUsers() {
     const users = await storageService.query(STORAGE_KEY_USER_DB);
     return users;
+}
+
+async function getFollowers(userId) {
+    const users = await storageService.query(STORAGE_KEY_USER_DB);
+    const followers = users.filter(user => {
+        if(user.id === userId) return false;
+        const follower = user.following.find(userItem => userItem.id === +userId);
+        if(follower) return true;
+        return false;
+    })
+    return followers;
+}
+
+async function getByUsername(username) {
+    const users = await storageService.query(STORAGE_KEY_USER_DB);
+    const user = users.find(userItem => userItem.username === username);
+    return user;
 }
 
 async function getById(userId) {
@@ -63,7 +82,7 @@ async function logout() {
 }
 
 function saveLocalUser(user) {
-    user = { id: user.id, fullname: user.fullname, imgUrl: user.imgUrl, following: user.following }
+    user = { id: user.id, fullname: user.fullname, imgUrl: user.imgUrl, following: user.following, username: user.username }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }

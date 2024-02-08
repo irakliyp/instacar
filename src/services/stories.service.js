@@ -9,7 +9,8 @@ export const storiesService = {
     query,
     get,
     remove,
-    save
+    save,
+    getByUserId
 }
 // For Debug (easy access from console):
 window.cs = storiesService
@@ -17,6 +18,12 @@ window.cs = storiesService
 async function query() {
     const stories = await storageService.query(storiesDB);
     return stories;
+}
+
+async function getByUserId(userId) {
+    const stories = await storageService.query(storiesDB);
+    const userStories = stories.filter(story => story.by.id === userId);
+    return userStories;
 }
 
 function get(storyId) {
