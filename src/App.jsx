@@ -28,7 +28,7 @@ function App() {
                       <Route path="home" element={<HomePage/>}/>
                       <Route path={user?.username} element={<Profile/>}>
                           <Route index element={<Posts/>}/>
-                          <Route path="saved" element={<Saved/>}/>
+                          <Route path="saved" element={<Posts/>}/>
                       </Route>
                   </Route>
                   <Route path="/story/:storyId" element={<StoryPreview/>}/>

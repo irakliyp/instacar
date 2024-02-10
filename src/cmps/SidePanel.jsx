@@ -1,11 +1,13 @@
 import {useSelector} from "react-redux";
 import {follow} from "../store/actions/user.actions.js";
+import {useNavigate} from "react-router-dom";
 
 
 export function SidePanel() {
     const user = useSelector(storeState => storeState.usersModule.user);
     const users = useSelector(storeState => storeState.usersModule.users);
     const {id, following} = user;
+    const nav = useNavigate();
 
     const isFollowing = userItem => {
         if(userItem.id === id) {
@@ -29,7 +31,10 @@ export function SidePanel() {
                     <span className="user-name gray">{userItem.fullname}</span>
                 </div>
             </div>
-            <button onClick={() =>follow(user, +userItem.id)}>{buttonName}</button>
+            {buttonName === "Switch" ?
+                <button onClick={() =>{nav('/login')}}>{buttonName}</button> :
+                <button onClick={() =>follow(user, +userItem.id)}>{buttonName}</button>
+            }
         </section>
     }
 

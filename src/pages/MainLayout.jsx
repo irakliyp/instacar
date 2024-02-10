@@ -16,7 +16,6 @@ export function MainLayout() {
 
     useEffect( () => {
         async function fetchData() {
-            debugger;
             if(!user) {
                 nav('/login');
             }

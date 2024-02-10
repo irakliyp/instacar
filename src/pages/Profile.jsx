@@ -104,7 +104,7 @@ export function Profile() {
                 </div>
             </section>
             <section className="profile-layout-content">
-                <Outlet context={stories}/>
+                <Outlet context={selectedTab === 1 ? stories : user.saved}/>
             </section>
         </section>
     </section>

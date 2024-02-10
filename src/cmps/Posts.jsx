@@ -6,6 +6,8 @@ import { FaComment } from "react-icons/fa";
 export function Posts() {
     const stories = useOutletContext();
 
+    if(!stories || !stories.length) return <div>No stories to present</div>
+
     return <section className="posts">
         {stories.map(story => {
             return <div>

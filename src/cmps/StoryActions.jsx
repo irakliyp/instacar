@@ -1,9 +1,10 @@
 import {addComment, setStory, toggleLike} from "../store/actions/stories.actions.js";
 import {useSelector} from "react-redux";
 import {useState} from "react";
-import {FaHeart, FaRegComment} from "react-icons/fa";
+import {FaHeart, FaRegComment, FaBookmark} from "react-icons/fa";
 import {FiSend} from "react-icons/fi";
 import {FaRegBookmark, FaRegHeart} from "react-icons/fa6";
+import {saveStory} from "../store/actions/user.actions.js";
 
 
 export function StoryActions({story, viewComments}) {
@@ -12,6 +13,7 @@ export function StoryActions({story, viewComments}) {
     const user = useSelector(storeState => storeState.usersModule.user);
     const [comment, setComment] = useState('');
     const liked = likedBy.find(likedUser => likedUser.id === user.id);
+    const [saved, setSaved] = useState(user.saved?.find(storyItem => storyItem.id === story.id));
 
 
     function postComment() {
@@ -23,7 +25,14 @@ export function StoryActions({story, viewComments}) {
         await setStory(story);
     }
 
+    async function save() {
+        setSaved(story);
+        await saveStory(user, story);
+    }
+
     if(!story) return <div></div>
+
+    debugger;
 
     return <>
         <div className="story-details-actions icon">
@@ -35,7 +44,13 @@ export function StoryActions({story, viewComments}) {
                 <FiSend/>
             </div>
             <div className="secondary-actions icon">
-                <FaRegBookmark/>
+                {!saved ? <div onClick={save}>
+                    <FaRegBookmark/>
+                </div>
+                    :
+                    <FaBookmark/>
+                }
+
             </div>
         </div>
         <div className="bold">{likedBy.length} likes</div>

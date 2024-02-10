@@ -1,8 +1,9 @@
 import { userService } from "../../services/user.service.js";
 
-import {FOLLOW_USER, REMOVE_USER, SET_USER, SET_USERS} from "../reducers/user.reducer"
+import {FOLLOW_USER, REMOVE_USER, SAVE_STORY, SET_USER, SET_USERS} from "../reducers/user.reducer"
 
 import { store } from "../store"
+import {ADD_STORY} from "../reducers/stories.reducer.js";
 
 
 
@@ -67,11 +68,27 @@ export async function logout() {
 
 export async function follow(user, id) {
     let updatedUser;
-    if(user.following) updatedUser = {...user, following: [...user?.following, {id: id}]}
+    if(user.following) updatedUser = {...user, following: [...user.following, {id: id}]}
     else updatedUser = {...user, following: [{id: id}]}
     await userService.update(updatedUser);
     store.dispatch({
         type: FOLLOW_USER,
+        user: updatedUser
+    })
+}
+
+export async function saveStory(user, story) {
+    let updatedUser;
+    if(user.saved) {
+        if(!user.saved.find(storyItem => storyItem.id === story.id)) {
+            updatedUser = {...user, saved: [...user.saved, story]}
+        }
+        else return;
+    }
+    else updatedUser = {...user, saved: [story]}
+    await userService.update(updatedUser);
+    store.dispatch({
+        type: SAVE_STORY,
         user: updatedUser
     })
 }
