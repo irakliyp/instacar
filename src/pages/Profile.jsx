@@ -51,6 +51,10 @@ export function Profile() {
                 <button className="bold">View archive</button>
             </>
         }
+        return <>
+            <button className="margin-left bold">Following</button>
+            <button className="bold">Message</button>
+        </>
     }
 
     if(!user) return <div></div>

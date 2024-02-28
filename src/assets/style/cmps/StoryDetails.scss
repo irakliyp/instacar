@@ -4,11 +4,13 @@
     justify-content: center;
     padding-top: 40px;
     justify-self: start;
+    width: 100%;
 
     .story-details {
         display: flex;
         flex-direction: column;
         gap: 10px;
+        width: 100%;
 
         .user-details {
             display: flex;
@@ -16,6 +18,11 @@
 
             .user-name {
                 padding-left: 10px;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
             }
 
             .user-icon {

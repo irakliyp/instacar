@@ -32,8 +32,6 @@ export function StoryActions({story, viewComments}) {
 
     if(!story) return <div></div>
 
-    debugger;
-
     return <>
         <div className="story-details-actions icon">
             <div className="primary-actions">
