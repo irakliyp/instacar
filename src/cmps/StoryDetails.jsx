@@ -1,11 +1,23 @@
-import {useSelector} from "react-redux";
 import {StoryActions} from "./StoryActions";
 import {Link} from "react-router-dom";
+import {userService} from "../services/user.service.js";
+import {useEffect, useState} from "react";
 
 export function StoryDetails({story}) {
-    const {txt, imgUrl, by, loc, comments, likedBy, tags} = story;
-    const {fullname, imgUrl: userImage, username} = by;
-    const user = useSelector(storeState => storeState.usersModule.user);
+    const {imgUrl, by} = story;
+    const {username} = by;
+    const [user, setUser] = useState(null);
+    const {fullname, imgUrl: userImage} = user ? user : {fullname: '', imgUrl: ''};
+
+    useEffect( () => {
+        async function fetchData() {
+            if(!user) {
+                const fetchedUser = await userService.getByUsername(username);
+                setUser(fetchedUser);
+            }
+        }
+        fetchData();
+    }, [story])
 
     return <section className="story-details">
         <div className="user-details">

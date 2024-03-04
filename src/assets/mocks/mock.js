@@ -1,22 +1,22 @@
 export const stories = [
     {
-        txt: 'Hello fists story',
+        txt: 'Meeting from school',
         imgUrl: [
-            'https://res.cloudinary.com/dw6usqu1w/image/upload/v1705573599/cld-sample-4.jpg'
+            'https://res.cloudinary.com/dw6usqu1w/image/upload/v1705573576/samples/cloudinary-group.jpg'
         ],
         by: {
-        "fullname": "Zurab P",
-        "username": "Muki",
-        "password": "123",
-        "isAdmin": false,
-        "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
-        "id": "2222"
+            "fullname": "Zurab P",
+            "username": "Zurab",
+            "password": "123",
+            "isAdmin": false,
+            "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+            "id": "2222"
         },
         loc: {},
         comments: [
             {
                 id: "1111",
-                txt: "Hello"
+                txt: "Where are u?"
             }
         ],
         likedBy: [
@@ -32,7 +32,7 @@ export const stories = [
         tags: []
     },
     {
-        txt: '1',
+        txt: 'My breakfast',
         imgUrl: [
             'https://res.cloudinary.com/dw6usqu1w/image/upload/v1705573599/cld-sample-4.jpg'
         ],
@@ -48,7 +48,15 @@ export const stories = [
         comments: [
             {
                 id: "3333",
-                txt: "Hello"
+                txt: "Looks tasty"
+            },
+            {
+                id: "2222",
+                txt: "Can i get the recipe?"
+            },
+            {
+                id: "1111",
+                txt: "Sure, ping me on private message"
             }
         ],
         likedBy: [
@@ -64,9 +72,9 @@ export const stories = [
         tags: []
     },
     {
-        txt: '2',
+        txt: 'My dream place',
         imgUrl: [
-            'https://res.cloudinary.com/dw6usqu1w/image/upload/v1705573599/cld-sample-4.jpg'
+            'https://res.cloudinary.com/dw6usqu1w/image/upload/v1705573597/cld-sample-2.jpg'
         ],
         by: {
             "fullname": "Regina M",
@@ -78,10 +86,7 @@ export const stories = [
         },
         loc: {},
         comments: [
-            {
-                id: "3333",
-                txt: "Hello"
-            }
+
         ],
         likedBy: [
             {
@@ -104,7 +109,7 @@ export const stories = [
         tags: []
     },
     {
-        txt: 'Hello second story',
+        txt: 'Hanging out with my friends',
         imgUrl: [
             'https://res.cloudinary.com/dw6usqu1w/image/upload/v1705573598/cld-sample-3.jpg'
         ],
@@ -120,7 +125,11 @@ export const stories = [
         comments: [
             {
                 id: "7777",
-                txt: "Hello world"
+                txt: "Nice"
+            },
+            {
+                id: "8888",
+                txt: "Wow enjoy"
             }
         ],
         likedBy: [
@@ -134,5 +143,129 @@ export const stories = [
             }
         ],
         tags: []
+    },
+    {
+        "txt": "Anyone interested to take part and buy some stocks?",
+        "imgUrl": [
+            "https://res.cloudinary.com/dw6usqu1w/image/upload/v1709554669/hpjyaxbcrwamvtzjj070.png"
+        ],
+        "by": {
+            "fullname": "Andrey Goncharov",
+            "username": "Andrey",
+            "imgUrl": "https://res.cloudinary.com/dw6usqu1w/image/upload/v1705573590/samples/smile.jpg",
+            "id": "9999"
+        },
+        "loc": {},
+        "comments": [
+            {
+                "id": "6666",
+                "txt": "I'm in"
+            }
+        ],
+        "likedBy": [],
+        "tags": [],
+        "id": "X2THu"
+    },
+    {
+        "txt": "My bedroom",
+        "imgUrl": [
+            "https://res.cloudinary.com/dw6usqu1w/image/upload/v1709554921/fho21nqm3wxdkphgqqdn.png"
+        ],
+        "by": {
+            "fullname": "Kristina P",
+            "username": "Kristina",
+            "imgUrl": "https://res.cloudinary.com/dw6usqu1w/image/upload/v1705573572/samples/people/bicycle.jpg",
+            "id": "7777"
+        },
+        "loc": {},
+        "comments": [
+            {
+                "id": "4444",
+                "txt": "Nice Mom. Can we now set our room?"
+            }
+        ],
+        "likedBy": [
+            {
+                "id": "4444",
+                "fullname": "Tiana P",
+                "imgUrl": "https://res.cloudinary.com/dw6usqu1w/image/upload/v1705573589/samples/two-ladies.jpg",
+                "following": [
+                    {
+                        "id": 5555
+                    }
+                ],
+                "username": "Tiana"
+            }
+        ],
+        "tags": [],
+        "id": "YrwIZ"
+    },
+    {
+        "txt": "Saving for a car. I have a little left!!!",
+        "imgUrl": [
+            "https://res.cloudinary.com/dw6usqu1w/image/upload/v1709554958/wb1nli2mwi8wzkpibw6s.png"
+        ],
+        "by": {
+            "fullname": "Zurab P",
+            "username": "Zurab",
+            "imgUrl": "https://res.cloudinary.com/dw6usqu1w/image/upload/v1705573565/samples/people/kitchen-bar.jpg",
+            "id": "2222"
+        },
+        "loc": {},
+        "comments": [
+            {
+                "id": "1111",
+                "txt": "Can i get one also?"
+            }
+        ],
+        "likedBy": [
+            {
+                "id": "1111",
+                "fullname": "Merab P",
+                "imgUrl": "https://res.cloudinary.com/dw6usqu1w/image/upload/v1705573593/samples/man-portrait.jpg",
+                "following": [
+                    {
+                        "id": 2222
+                    }
+                ],
+                "username": "Merab"
+            }
+        ],
+        "tags": [],
+        "id": "oWQc6"
+    },
+    {
+        "txt": "Who knows where is this place?",
+        "imgUrl": [
+            "https://res.cloudinary.com/dw6usqu1w/image/upload/v1709554995/sl8enyw5j0obuyu9tknm.png"
+        ],
+        "by": {
+            "fullname": "Regina M",
+            "username": "Regina",
+            "imgUrl": "https://res.cloudinary.com/dw6usqu1w/image/upload/v1705573592/samples/outdoor-woman.jpg",
+            "id": "8888"
+        },
+        "loc": {},
+        "comments": [
+            {
+                "id": "6666",
+                "txt": "In your dreams :)"
+            }
+        ],
+        "likedBy": [
+            {
+                "id": "4444",
+                "fullname": "Tiana P",
+                "imgUrl": "https://res.cloudinary.com/dw6usqu1w/image/upload/v1705573589/samples/two-ladies.jpg",
+                "following": [
+                    {
+                        "id": 5555
+                    }
+                ],
+                "username": "Tiana"
+            }
+        ],
+        "tags": [],
+        "id": "2EV3e"
     }
 ]
