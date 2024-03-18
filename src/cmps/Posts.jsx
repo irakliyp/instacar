@@ -1,7 +1,7 @@
 import {useOutletContext} from "react-router-dom";
 import {setStory} from "../store/actions/stories.actions.js";
 import { FaComment } from "react-icons/fa";
-
+import React from 'react'
 
 export function Posts() {
     const stories = useOutletContext();

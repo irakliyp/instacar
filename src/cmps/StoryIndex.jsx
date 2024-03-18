@@ -1,4 +1,5 @@
 import {StoryDetails} from "./StoryDetails";
+import React from 'react'
 
 export function StoryIndex(props) {
     const {stories} = props;

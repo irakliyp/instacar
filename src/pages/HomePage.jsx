@@ -3,6 +3,7 @@ import {useSelector} from "react-redux";
 import {useEffect} from "react";
 import {loadStories} from "../store/actions/stories.actions.js";
 import {StoryIndex} from "../cmps/StoryIndex";
+import React from 'react'
 
 export function HomePage() {
 

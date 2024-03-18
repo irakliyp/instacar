@@ -9,6 +9,7 @@ import {Posts} from "./cmps/Posts.jsx";
 import {useSelector} from "react-redux";
 import {Login} from "./pages/Login.jsx";
 import {SignIn} from "./pages/SignIn";
+import React from 'react'
 
 function App() {
     const user = useSelector(storeState => storeState.usersModule.user);

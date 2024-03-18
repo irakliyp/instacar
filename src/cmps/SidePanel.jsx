@@ -1,7 +1,7 @@
 import {useSelector} from "react-redux";
 import {follow} from "../store/actions/user.actions.js";
 import {useNavigate} from "react-router-dom";
-
+import React from 'react'
 
 export function SidePanel() {
     const user = useSelector(storeState => storeState.usersModule.user);

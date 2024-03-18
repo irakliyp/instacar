@@ -7,7 +7,7 @@ import { MdVerified } from "react-icons/md";
 import { LiaTableSolid } from "react-icons/lia";
 import {FaRegBookmark} from "react-icons/fa6";
 import {useSelector} from "react-redux";
-
+import React from 'react'
 
 
 export function Profile() {

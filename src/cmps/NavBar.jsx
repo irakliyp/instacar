@@ -5,7 +5,7 @@ import { VscThreeBars } from "react-icons/vsc";
 import { CgProfile } from "react-icons/cg";
 import {useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
-
+import React from 'react'
 
 
 export function NavBar({toggleNewPostModal}) {

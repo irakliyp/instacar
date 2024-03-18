@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {SET_STORY} from "../store/reducers/stories.reducer.js";
 import {userService} from "../services/user.service.js";
 import {StoryActions} from "../cmps/StoryActions.jsx";
-
+import React from 'react'
 
 export function StoryPreview({story}) {
     const {txt, imgUrl, by, loc, comments, likedBy, tags} = story;

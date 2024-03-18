@@ -4,7 +4,7 @@ import {uploadService} from "../services/upload.service.js";
 import { HiOutlineArrowLeft } from "react-icons/hi";
 import {useSelector} from "react-redux";
 import {addStory} from "../store/actions/stories.actions.js";
-
+import React from 'react'
 
 export function CreateNewPost({toggleNewPostModal}) {
     const modalRef = useRef();

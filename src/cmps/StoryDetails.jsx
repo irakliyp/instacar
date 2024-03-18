@@ -2,6 +2,7 @@ import {StoryActions} from "./StoryActions";
 import {Link} from "react-router-dom";
 import {userService} from "../services/user.service.js";
 import {useEffect, useState} from "react";
+import React from 'react'
 
 export function StoryDetails({story}) {
     const {imgUrl, by} = story;

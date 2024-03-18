@@ -5,7 +5,7 @@ import {FaHeart, FaRegComment, FaBookmark} from "react-icons/fa";
 import {FiSend} from "react-icons/fi";
 import {FaRegBookmark, FaRegHeart} from "react-icons/fa6";
 import {saveStory} from "../store/actions/user.actions.js";
-
+import React from 'react'
 
 export function StoryActions({story, viewComments}) {
     const {txt, imgUrl, by, loc, comments, likedBy, tags} = story;
